@@ -1,6 +1,6 @@
-# ProtGPT-2: Antibody Sequence Generation with GPT-2
+# ProtGPT-2: Generating Antibody Sequences In Silico with GPT-2
 
-ProtGPT-2 is a project for training and evaluating a GPT-2 model for antibody sequence generation. This project includes data processing, model training, and evaluation scripts.
+The existing ProtGPT-2 model has been trained on the most frequent V gene combinations (IGHV3-IGKV1) of human paired antibody sequences to generate antibody sequences in silico.
 
 ## Directory Structure
 
@@ -107,11 +107,16 @@ To load the trained ProtGPT-2 model using the `transformers` library, follow the
     model = AutoModelForCausalLM.from_pretrained(model_path)
 
 
-### Model parameters and information
+### Model training parameters 
 * Optimizer - Adam ( learning rate: 5e-4, weight_decay:1e-5)
 * batch size -  16
 * train/validation - 90/10
 * The model was trained on a single NVIDIA H100 GPU with a batch size of 16 and for 2 epochs
+
+### References
+- Existing model is taken from Hugging face : https://huggingface.co/nferruz/ProtGPT2
+- Research paper : https://doi.org/10.1038/s41467-022-32007-7
+
 
 
 
