@@ -51,7 +51,9 @@ Contains the datasets used for training and validation.
   
 - [`raw/`](./data/raw): Raw data files before preprocessing.
   - `IGHV3_IGKV1_Paired_BType_Naive_B_Cells_Disease_None.csv`: Raw antibody sequences.
-  - `Training_loss.csv`: Training loss data.
+- `Training_loss.csv`: Training loss data.
+- `Training_loss.png`
+- `Validation_loss.png`
 
 ### [`logs/`](./logs)
 Contains TensorBoard log files for visualizing training metrics.
@@ -79,7 +81,7 @@ Jupyter notebooks for data processing and training.
 - [`Data_processing.ipynb`](./notebooks/Data_processing.ipynb): Notebook to process model input antibody sequences and write in input format (<vh|vl>)
 - [`train.ipynb`](./notebooks/train.ipynb): Notebook for training and evaluating the model.
 
-### `scripts/`
+### [`scripts/`](./scripts/)
 
 - [`train.py`](./scripts/train.py): Script for training the ProtGPT-2 model.
 
@@ -103,5 +105,14 @@ To load the trained ProtGPT-2 model using the `transformers` library, follow the
 
     # Load the model
     model = AutoModelForCausalLM.from_pretrained(model_path)
+
+
+### Model parameters and information
+* Optimizer - Adam ( learning rate: 5e-4, weight_decay:1e-5)
+* batch size -  16
+* train/validation - 90/10
+* The model was trained on a single NVIDIA H100 GPU with a batch size of 16 and for 2 epochs
+
+
 
 
