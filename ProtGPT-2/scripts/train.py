@@ -82,7 +82,7 @@ def train(model: torch.nn.Module, train_dataloader: DataLoader, val_dataloader: 
 
             # Save checkpoint every 500 steps
             if (step + 1) % 500 == 0:
-                checkpoint_dir = f"./experiment/models/checkpoints/checkpoint_epoch_{epoch+1}_step_{step+1}"
+                checkpoint_dir = f"./models/checkpoints/checkpoint_epoch_{epoch+1}_step_{step+1}"
                 os.makedirs(checkpoint_dir, exist_ok=True)
                 checkpoint_path = os.path.join(checkpoint_dir, "checkpoint.pth")
                 torch.save({
@@ -105,8 +105,8 @@ def train(model: torch.nn.Module, train_dataloader: DataLoader, val_dataloader: 
         print(f"Training Loss: {avg_train_loss}")
         
     # Save the model and tokenizer after training
-    model.save_pretrained("./experiment/models/protgpt2_antibody_model")
-    tokenizer.save_pretrained("./experiment/models/protgpt2_antibody_model")
+    model.save_pretrained("./models/protgpt2_antibody_model")
+    tokenizer.save_pretrained("./models/protgpt2_antibody_model")
 
 def main():
     # Load training and validation sequences
@@ -132,17 +132,17 @@ def main():
     # Create datasets and dataloaders
     train_dataset = AntibodyDataset(train_sequences, tokenizer) # Training dataset
     val_dataset = AntibodyDataset(valid_sequences, tokenizer) # Validation dataset
-    train_dataloader = DataLoader(train_dataset, batch_size=4, shuffle=True)
-    val_dataloader = DataLoader(val_dataset, batch_size=4, shuffle=True)
+    train_dataloader = DataLoader(train_dataset, batch_size=16, shuffle=True)
+    val_dataloader = DataLoader(val_dataset, batch_size=16, shuffle=True)
 
     # Initialize TensorBoard writer
-    writer = SummaryWriter(log_dir='experiment/runs/')
+    writer = SummaryWriter(log_dir='/logs/')
 
     # Set device
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     
-    os.makedirs('./experiment/models/checkpoints/', exist_ok=True)
-    os.makedirs('./experiment/models/protgpt2_antibody_model/', exist_ok=True)
+    os.makedirs('./models/checkpoints/', exist_ok=True)
+    os.makedirs('./models/protgpt2_antibody_model/', exist_ok=True)
 
     # Train the model
     train(model, train_dataloader, val_dataloader, device, epochs=2, writer=writer, tokenizer=tokenizer)
