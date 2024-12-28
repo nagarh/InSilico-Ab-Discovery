@@ -1,3 +1,3 @@
 # In Silico Antibody Discovery with Generative AI
 
-![](Paired_Seq_Data_Analysis/AB_Repo_page_3.png)
+![](Paired_Seq_Data_Analysis/AB_Repo_page_4.png)
