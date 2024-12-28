@@ -41,7 +41,7 @@ ProtGPT-2/
 │   ├── Sample_sequences.py # code to generate new sequences from trained model
 │   ├── filter_sequences.py # code to check validity of generated sequences
 │   ├── predict_seq_structure.py # code to generate structure of generated sequences
-│   └── train.py # model training script 
+│   └── train.py # model training script (PyTorch library is used to train the model)
 └── README.md
 
 ```
