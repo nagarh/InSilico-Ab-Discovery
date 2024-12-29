@@ -18,7 +18,7 @@ This folder contains all necessary data, model, and scripts for working with Pro
 
 - The trained [ProtGPT-2](./ProtGPT-2/models/protgpt2_antibody_model/) model specifically on human paired antibody sequences.
 - Preprocessed datasets used for training
-Configurations and scripts for generating novel antibody sequences
+- Configurations and scripts for generating novel antibody sequences
 - Scripts for predicting the structure of generated sequences using [IgFold](https://github.com/Graylab/IgFold) and PyRosetta
 
 ## Data Source
