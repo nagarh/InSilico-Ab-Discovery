@@ -48,7 +48,7 @@ ProtGPT-2/
 
 ## Folder Descriptions
 
-### [data/](./data)
+### [`data/`](./data)
 Contains the datasets used for training and validation
 
 - [`processed/`](./data/processed): Preprocessed data ready for model training and validation
